@@ -69,7 +69,7 @@ function Details(element){
     div.innerHTML = `
     <div  class="Food-card-top">
                 <div class="Food-card-img-top">
-                    <img src="${element.strMealThumb}" alt="" class="Food-card-image">
+                    <img src="${element.strMealThumb}" alt="" class="Food-card-image w-50 mx-auto">
                 </div>
                 <div class="Food-card-informations">
                     <h5>Ingrredients:</h5><hr>
