@@ -1,3 +1,13 @@
+fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=a`)
+            .then(res => res.json())
+            .then(data => {
+                display_card(data.meals);
+            })
+            .catch(err => {
+                alert(err);
+            });
+
+
 function display_card(data) {
     const card = document.getElementById("menu");
     card.innerHTML = ''; 
@@ -50,6 +60,46 @@ function valid(object){
 
 
 
+// function Details(element){
+//     const card = document.getElementsByClassName("modal-body")[0];
+//     card.innerHTML = ''; 
+        
+//     const div = document.createElement("div");
+//     div.classList.add("Food-cards-recipy");
+
+
+//     let ingredientsList = '';
+//     for (let i = 1; i <= 20; i++) {
+//         const ingredient = element['strIngredient' + i];
+//         if (ingredient && ingredient.trim() !== '') {
+//             ingredientsList += `${ingredient}, `;
+//         }
+//     }
+
+//     div.innerHTML = `
+    
+//     <div  class="Food-card-top ">
+//                 <div class="Food-card-img-top">
+//                     <img src="${element.strMealThumb}" alt="" class="Food-card-image  mx-auto">
+//                 </div>
+//                 <div class="Food-card-informations">
+//                     <h5>Ingrredients:</h5><hr>
+//                     <h5>${ingredientsList}</h5>
+//                     </div>
+//         </div>
+//         <div class="dis w-100 text-center">
+//             <p>${element.strInstructions}</p>
+//         </div>
+        
+        
+//     `;
+//     card.appendChild(div);
+        
+    
+    
+// }
+
+
 function Details(element){
     const card = document.getElementsByClassName("modal-body")[0];
     card.innerHTML = ''; 
@@ -67,18 +117,17 @@ function Details(element){
     }
 
     div.innerHTML = `
-    <div  class="Food-card-top">
-                <div class="Food-card-img-top">
-                    <img src="${element.strMealThumb}" alt="" class="Food-card-image w-50 mx-auto">
+    <div class="Food-card-img">
+                    <img src="${element.strMealThumb}" alt="" class="Food-card-image">
                 </div>
                 <div class="Food-card-informations">
+                    <h3>${element.strMeal} </h3>
+                    <div class="Food-card-informations">
                     <h5>Ingrredients:</h5><hr>
                     <h5>${ingredientsList}</h5>
                     </div>
-        </div>
-        <div class="dis">
-            <p>${element.strInstructions}</p>
-        </div>
+                    <p class="details">${element.strInstructions}</p>
+                </div>
         
     `;
     card.appendChild(div);
