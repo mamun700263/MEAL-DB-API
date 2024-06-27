@@ -1,16 +1,16 @@
 fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=a`)
-            .then(res => res.json())
-            .then(data => {
-                display_card(data.meals);
-            })
-            .catch(err => {
-                alert(err);
-            });
+    .then(res => res.json())
+    .then(data => {
+        display_card(data.meals);
+    })
+    .catch(err => {
+        alert(err);
+    });
 
 
 function display_card(data) {
     const card = document.getElementById("menu");
-    card.innerHTML = ''; 
+    card.innerHTML = '';
 
     if (!data || data.length === 0) {
         alert("No elements found");
@@ -23,7 +23,7 @@ function display_card(data) {
                 <div class="Food-card-img">
                     <img src="${element.strMealThumb}" alt="" class="Food-card-image">
                 </div>
-                <div class="Food-card-informations">
+                <div class="Food-card-informations ">
                     <h5>${element.strMeal}</h5>
                     <h5>${element.strCategory}</h5>
                     <h5>${element.strArea}</h5>
@@ -54,8 +54,8 @@ function fetch_and_display_menu() {
     }
 }
 
-function valid(object){
-    if(object!=null)return object;
+function valid(object) {
+    if (object != null) return object;
 }
 
 
@@ -63,7 +63,7 @@ function valid(object){
 // function Details(element){
 //     const card = document.getElementsByClassName("modal-body")[0];
 //     card.innerHTML = ''; 
-        
+
 //     const div = document.createElement("div");
 //     div.classList.add("Food-cards-recipy");
 
@@ -77,7 +77,7 @@ function valid(object){
 //     }
 
 //     div.innerHTML = `
-    
+
 //     <div  class="Food-card-top ">
 //                 <div class="Food-card-img-top">
 //                     <img src="${element.strMealThumb}" alt="" class="Food-card-image  mx-auto">
@@ -90,20 +90,65 @@ function valid(object){
 //         <div class="dis w-100 text-center">
 //             <p>${element.strInstructions}</p>
 //         </div>
-        
-        
+
+
 //     `;
 //     card.appendChild(div);
-        
-    
-    
+
+
+
 // }
 
 
-function Details(element){
-    const card = document.getElementsByClassName("modal-body")[0];
-    card.innerHTML = ''; 
+// function Details(element) {
+//     const card = document.getElementsByClassName("modal-body")[0];
+//     card.innerHTML = '';
+
+//     const div = document.createElement("div");
+//     div.classList.add("Food-cards-recipy");
+
+
+//     let ingredientsList = '';
+//     for (let i = 1; i <= 20; i++) {
+//         const ingredient = element['strIngredient' + i];
+//         if (ingredient && ingredient.trim() !== '') {
+//             ingredientsList += `${ingredient}, `;
+//         }
+//     }
+
+//     div.innerHTML = `
+//    <div class="card " style="max-width: 100%">
+//   <div class="row g-0">
+//     <div class="">
+//       <img src="${element.strMealThumb}" class="img-fluid rounded-start" alt="...">
+//     </div>
+//     <div class="col-md-8">
+//       <div class="card-body">
+//         <h5 class="card-title">${element.strMeal}</h5>
+//         <p class="card-text"><small class="text-body-secondary">${ingredientsList}</small></p>
+//         <p class="card-text">${element.strInstructions}</p>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+
         
+//     `;
+//     card.appendChild(div);
+
+
+
+// }
+
+
+
+
+
+function Details(element) {
+    const card = document.getElementsByClassName("modal-body")[0];
+    card.innerHTML = '';
+
     const div = document.createElement("div");
     div.classList.add("Food-cards-recipy");
 
@@ -117,7 +162,7 @@ function Details(element){
     }
 
     div.innerHTML = `
-    <div class="Food-card-img">
+    <div class="Food-card-img ">
                     <img src="${element.strMealThumb}" alt="" class="Food-card-image">
                 </div>
                 <div class="Food-card-informations">
@@ -131,7 +176,7 @@ function Details(element){
         
     `;
     card.appendChild(div);
-        
-    
-    
+
+
+
 }
